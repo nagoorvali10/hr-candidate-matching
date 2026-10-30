@@ -1,0 +1,75 @@
+# Project Explanation for Faculty Review
+
+## Introduction and Overview
+-----------------------------------------------------------------
+Good morning/afternoon, respected faculty members. We are here to present our project - a Candidate Management System. This system is designed to streamline the recruitment process by managing candidate information, resumes, interview evaluations, and final selections all in one place.
+
+Our team consists of four members:
+- Nagur - Project coordination and candidate introduction
+- Muskan - Resume analysis and interview management
+- Rizwana - Final evaluation and results
+- Varun - Database and backend connectivity
+
+-----------------------------------------------------------------
+
+## Candidate Details and System Initialization
+-----------------------------------------------------------------
+The system allows administrators to add new candidates with their basic details such as name, email, phone number, and position applied for. Once a candidate is registered, they can upload their resume, which is then stored securely in our system. The candidate management module also tracks the status of each candidate through various stages of the recruitment process.
+
+When a candidate is added, the system generates a unique ID for tracking purposes and maintains a complete record of all interactions.
+
+-----------------------------------------------------------------
+
+## Resume Analysis and Interview Management - Muskan
+-----------------------------------------------------------------
+Muskan will now explain how we handle resume analysis and the interview process.
+
+Our system provides a dedicated interface for reviewing candidate resumes. Administrators can view uploaded resumes, search candidates based on skills, experience, or position, and filter candidates based on various criteria.
+
+The interview management module allows scheduling interviews and recording feedback. After each interview, the interviewer can rate the candidate on different parameters such as technical skills, communication, problem-solving ability, and domain knowledge. These ratings are stored and used for further evaluation.
+
+-----------------------------------------------------------------
+
+## Final Evaluation Results - Rizwana
+-----------------------------------------------------------------
+Rizwana will explain how we calculate and present the final evaluation results.
+
+The final evaluation is based on a weighted scoring system. We consider:
+- Resume score (based on qualifications and experience)
+- Technical interview score
+- HR interview score
+- Additional skills and certifications
+
+The system automatically calculates the overall score and generates a ranking of candidates. Administrators can then select candidates based on their scores and requirements. The final results are displayed in a clear, organized manner with candidate details, scores breakdown, and final status (Selected/Rejected/Pending).
+
+-----------------------------------------------------------------
+
+## SQL Database and Backend Connectivity - Varun
+-----------------------------------------------------------------
+Varun will explain the technical implementation including database and backend connectivity.
+
+We have implemented a robust backend using Node.js with Express framework. The backend communicates with a MySQL database that stores all candidate information, interview data, and evaluation scores.
+
+Key database tables include:
+- Candidates table - stores basic candidate information
+- Resumes table - stores resume file paths and metadata
+- Interviews table - stores interview schedules and feedback
+- Evaluations table - stores scoring data
+- Users table - manages admin access
+
+The backend provides RESTful APIs for all operations:
+- POST /api/candidates - Add new candidate
+- GET /api/candidates - Retrieve all candidates
+- PUT /api/candidates/:id - Update candidate details
+- DELETE /api/candidates/:id - Remove candidate
+- GET /api/candidates/:id/evaluation - Get candidate evaluation
+
+All data is validated and sanitized to prevent SQL injection and ensure data security.
+
+-----------------------------------------------------------------
+
+## Conclusion
+-----------------------------------------------------------------
+In summary, our Candidate Management System provides a comprehensive solution for managing the entire recruitment process. It includes candidate registration, resume management, interview scheduling, evaluation tracking, and final selection - all with a user-friendly interface and secure backend.
+
+Thank you for your attention. We welcome any questions from the faculty.

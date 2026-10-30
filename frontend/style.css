@@ -1,0 +1,719 @@
+/* =====================================================
+   Human Resources - Intelligent Candidate Matching System
+   Professional HR Dashboard Styling
+   ===================================================== */
+
+/* CSS Variables */
+:root {
+    --primary-color: #1e3a5f;
+    --primary-dark: #152a45;
+    --primary-light: #2d5a8a;
+    --secondary-color: #3498db;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --info-color: #16a085;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #6c757d;
+    --gray-600: #495057;
+    --gray-700: #343a40;
+    --gray-800: #212529;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    color: var(--gray-700);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =====================================================
+   Header Styles
+   ===================================================== */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 30px 0;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-section i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Explanation Section */
+.explanation-section {
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.explanation-text {
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.explanation-text i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+/* =====================================================
+   Card Styles
+   ===================================================== */
+main {
+    padding: 30px 0;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card-header i {
+    font-size: 1.5rem;
+}
+
+.card-header.success {
+    background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+}
+
+.card-header.admin {
+    background: linear-gradient(135deg, var(--info-color) 0%, #1abc9c 100%);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* =====================================================
+   Form Styles
+   ===================================================== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 5px;
+}
+
+/* =====================================================
+   Button Styles
+   ===================================================== */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 58, 95, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+    color: var(--white);
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--gray-500) 0%, var(--gray-600) 100%);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+.btn-info {
+    background: linear-gradient(135deg, var(--info-color) 0%, #1abc9c 100%);
+    color: var(--white);
+}
+
+.btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(22, 160, 133, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* =====================================================
+   Score Display Styles
+   ===================================================== */
+.score-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.score-circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+}
+
+.score-ring {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.score-ring-bg {
+    fill: none;
+    stroke: var(--gray-200);
+    stroke-width: 10;
+}
+
+.score-ring-progress {
+    fill: none;
+    stroke: var(--secondary-color);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.score-ring-progress.high {
+    stroke: var(--success-color);
+}
+
+.score-ring-progress.medium {
+    stroke: var(--warning-color);
+}
+
+.score-ring-progress.low {
+    stroke: var(--danger-color);
+}
+
+.score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.score-label {
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+/* Skills Analysis */
+.skills-analysis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .skills-analysis {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skills-section {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.skills-section.matched {
+    background: rgba(39, 174, 96, 0.1);
+    border-left: 4px solid var(--success-color);
+}
+
+.skills-section.missing {
+    background: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid var(--danger-color);
+}
+
+.skills-section h4 {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-section.matched h4 {
+    color: var(--success-color);
+}
+
+.skills-section.missing h4 {
+    color: var(--danger-color);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.skill-tag.matched {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.skill-tag.missing {
+    background: var(--gray-300);
+    color: var(--gray-600);
+}
+
+/* =====================================================
+   Interview Section Styles
+   ===================================================== */
+.section-description {
+    margin-bottom: 20px;
+    color: var(--gray-600);
+}
+
+.interview-question {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--gray-100);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.interview-question h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.interview-question h4 span {
+    background: var(--secondary-color);
+    color: var(--white);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.interview-question textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 80px;
+    transition: var(--transition);
+}
+
+.interview-question textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+/* =====================================================
+   Final Summary Styles
+   ===================================================== */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.summary-item {
+    text-align: center;
+    padding: 20px;
+    background: var(--gray-100);
+    border-radius: 8px;
+}
+
+.summary-label {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 10px;
+}
+
+.summary-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.summary-value.recommendation {
+    font-size: 1.4rem;
+}
+
+.recommendation-badge {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.recommendation-badge.strongly-recommended {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: var(--white);
+}
+
+.recommendation-badge.recommended {
+    background: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
+    color: var(--white);
+}
+
+.recommendation-badge.consider {
+    background: linear-gradient(135deg, #f39c12 0%, #f5b041 100%);
+    color: var(--white);
+}
+
+.recommendation-badge.not-recommended {
+    background: linear-gradient(135deg, #e74c3c 0%, #ec7063 100%);
+    color: var(--white);
+}
+
+.summary-grid .btn-secondary {
+    width: 100%;
+    justify-content: center;
+}
+
+/* =====================================================
+   Admin View Table Styles
+   ===================================================== */
+#admin-section .card-body {
+    text-align: center;
+}
+
+#loadCandidatesBtn {
+    margin-bottom: 20px;
+}
+
+.candidates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.candidates-table th,
+.candidates-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.candidates-table th {
+    background: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.candidates-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.candidates-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.candidates-table tbody tr:hover {
+    background: var(--gray-100);
+}
+
+.candidates-table .recommendation-cell {
+    font-weight: 600;
+}
+
+.candidates-table .recommendation-cell.strongly-recommended {
+    color: var(--success-color);
+}
+
+.candidates-table .recommendation-cell.recommended {
+    color: var(--secondary-color);
+}
+
+.candidates-table .recommendation-cell.consider {
+    color: var(--warning-color);
+}
+
+.candidates-table .recommendation-cell.not-recommended {
+    color: var(--danger-color);
+}
+
+.no-data {
+    padding: 40px;
+    text-align: center;
+    color: var(--gray-500);
+}
+
+.no-data i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* =====================================================
+   Footer Styles
+   ===================================================== */
+footer {
+    background: var(--gray-800);
+    color: var(--gray-400);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   Loading Animation
+   ===================================================== */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =====================================================
+   Responsive Adjustments
+   ===================================================== */
+@media (max-width: 576px) {
+    .main-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .logo-section i {
+        font-size: 2rem;
+    }
+}

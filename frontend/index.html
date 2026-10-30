@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR - Intelligent Candidate Matching System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-user-tie"></i>
+                <h1>Human Resources</h1>
+            </div>
+            <p class="subtitle">Intelligent Candidate Matching & Interview Automation</p>
+        </div>
+    </header>
+
+    <!-- Explanation Section -->
+    <section class="explanation-section">
+        <div class="container">
+            <p class="explanation-text">
+                <i class="fas fa-info-circle"></i>
+                This system demonstrates AI-based intelligent candidate matching using keyword extraction and rule-based scoring techniques integrated with database storage.
+            </p>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Candidate Information Form -->
+        <section class="card" id="candidate-form-section">
+            <div class="card-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Candidate Information</h2>
+            </div>
+            <div class="card-body">
+                <form id="candidateForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="candidateName">
+                                <i class="fas fa-user"></i> Full Name
+                            </label>
+                            <input type="text" id="candidateName" name="name" placeholder="Enter candidate's full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="candidateEmail">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input type="email" id="candidateEmail" name="email" placeholder="Enter email address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobRole">
+                            <i class="fas fa-briefcase"></i> Job Role
+                        </label>
+                        <select id="jobRole" name="job_role" required>
+                            <option value="">Select Job Role</option>
+                            <option value="Frontend Developer">Frontend Developer</option>
+                            <option value="Backend Developer">Backend Developer</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="HR Manager">HR Manager</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="resumeText">
+                            <i class="fas fa-file-alt"></i> Resume / Skills Summary
+                        </label>
+                        <textarea id="resumeText" name="resume_text" rows="8" placeholder="Paste candidate's resume or skills summary here..." required></textarea>
+                        <p class="form-hint">Include relevant skills, experience, and technologies the candidate is proficient in.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="resumeFile">
+                            <i class="fas fa-file-pdf"></i> Or Upload PDF Resume
+                        </label>
+                        <input type="file" id="resumeFile" name="resume_file" accept=".pdf" class="file-input">
+                        <p class="form-hint">Upload a PDF file instead of typing (optional).</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                        <i class="fas fa-search"></i> Analyze Resume
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Match Score Display -->
+        <section class="card" id="match-score-section" style="display: none;">
+            <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                <h2>Resume Match Analysis</h2>
+            </div>
+            <div class="card-body">
+                <div class="score-container">
+                    <div class="score-circle">
+                        <svg class="score-ring" viewBox="0 0 120 120">
+                            <circle class="score-ring-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="score-ring-progress" cx="60" cy="60" r="54" id="scoreRing"></circle>
+                        </svg>
+                        <div class="score-value">
+                            <span id="matchScoreValue">0</span>%
+                        </div>
+                    </div>
+                    <div class="score-label">Match Score</div>
+                </div>
+                
+                <div class="skills-analysis">
+                    <div class="skills-section matched">
+                        <h4><i class="fas fa-check-circle"></i> Matched Skills</h4>
+                        <div class="skills-list" id="matchedSkills"></div>
+                    </div>
+                    <div class="skills-section missing">
+                        <h4><i class="fas fa-times-circle"></i> Missing Skills</h4>
+                        <div class="skills-list" id="missingSkills"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Section -->
+        <section class="card" id="interview-section" style="display: none;">
+            <div class="card-header">
+                <i class="fas fa-comments"></i>
+                <h2>Automated Interview</h2>
+            </div>
+            <div class="card-body">
+                <p class="section-description">Please answer the following questions to complete the evaluation:</p>
+                <div id="interviewQuestions"></div>
+                <button type="button" class="btn btn-success" id="evaluateBtn">
+                    <i class="fas fa-check-double"></i> Evaluate Candidate
+                </button>
+            </div>
+        </section>
+
+        <!-- Final Summary Card -->
+        <section class="card" id="final-summary" style="display: none;">
+            <div class="card-header success">
+                <i class="fas fa-award"></i>
+                <h2>Final Evaluation Result</h2>
+            </div>
+            <div class="card-body">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-label">Resume Match Score</div>
+                        <div class="summary-value" id="summaryResumeScore">0%</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Interview Score</div>
+                        <div class="summary-value" id="summaryInterviewScore">0%</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Final Recommendation</div>
+                        <div class="summary-value recommendation" id="summaryRecommendation">-</div>
+                    </div>
+                </div>
+                <div class="recommendation-badge" id="recommendationBadge">
+                    <i class="fas fa-star"></i>
+                    <span id="recommendationText"></span>
+                </div>
+                <button type="button" class="btn btn-secondary" id="newCandidateBtn">
+                    <i class="fas fa-plus"></i> Evaluate New Candidate
+                </button>
+            </div>
+        </section>
+
+        <!-- Admin View Section -->
+        <section class="card" id="admin-section">
+            <div class="card-header admin">
+                <i class="fas fa-users-cog"></i>
+                <h2>Admin View - Candidate Database</h2>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-info" id="loadCandidatesBtn">
+                    <i class="fas fa-database"></i> Load All Candidates
+                </button>
+                <div id="candidatesTableContainer" style="display: none;">
+                    <table class="candidates-table" id="candidatesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Job Role</th>
+                                <th>Resume Score</th>
+                                <th>Interview Score</th>
+                                <th>Recommendation</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="candidatesTableBody"></tbody>
+                    </table>
+                </div>
+                <div id="noCandidates" class="no-data" style="display: none;">
+                    <i class="fas fa-folder-open"></i>
+                    <p>No candidates found in database</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HR Intelligent Matching System | Powered by AI & Machine Learning</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

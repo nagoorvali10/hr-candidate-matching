@@ -1,0 +1,136 @@
+================================================================================
+    HR INTELLIGENT CANDIDATE MATCHING SYSTEM - SETUP INSTRUCTIONS
+================================================================================
+
+This is a complete full-stack HR application using Node.js, Express, and MySQL.
+
+================================================================================
+PREREQUISITES
+================================================================================
+
+1. Node.js
+   - Download from: https://nodejs.org
+   - Install the LTS version (recommended)
+
+2. MySQL Database
+   - Install MySQL (from mysql.com) OR
+   - Use XAMPP/WAMP (includes MySQL)
+
+================================================================================
+QUICK START STEPS FOR TEAM MEMBERS
+================================================================================
+
+STEP 1: EXTRACT THE ZIP FILE
+-----------------------------
+- Extract the RR folder to your desired location
+- Keep the folder structure intact
+
+STEP 2: VERIFY MYSQL IS RUNNING
+-------------------------------
+- Start MySQL service
+- If using XAMPP: Start Apache and MySQL in XAMPP Control Panel
+- Default credentials configured:
+  * Host: localhost
+  * Username: root
+  * Password: Abhi@2005
+  * Database: job (will be auto-created)
+
+STEP 3: INSTALL DEPENDENCIES
+----------------------------
+- Open terminal/command prompt
+- Navigate to the backend folder:
+    cd RR/backend
+- Install required packages:
+    npm install
+
+STEP 4: START THE SERVER
+-------------------------
+- In the same terminal, run:
+    npm start
+
+- You should see:
+    "Connected to MySQL database: job"
+    "Table candidates ready"
+    "HR Intelligent Matching System running on http://localhost:3000"
+
+STEP 5: USE THE APPLICATION
+---------------------------
+- Open your web browser
+- Go to: http://localhost:3000
+- The HR dashboard will load
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+RR/
+├── backend/
+│   ├── database.sql      - Database setup script
+│   ├── package.json      - Dependencies configuration
+│   └── server.js         - Main server file
+├── frontend/
+│   ├── index.html        - Dashboard HTML
+│   ├── style.css         - Styling
+│   └── script.js         - Frontend JavaScript
+└── README.md             - Full documentation
+
+================================================================================
+FEATURES
+================================================================================
+
+✓ Resume analysis with skill matching
+✓ Automated interview with 5 questions per role
+✓ AI-based scoring (40% resume, 60% interview)
+✓ Final recommendation system
+✓ MySQL database storage
+✓ Admin view of all candidates
+✓ Professional HR dashboard UI
+
+Job Roles Available:
+- Frontend Developer
+- Backend Developer
+- Data Analyst
+- HR Manager
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ISSUE: "npm is not recognized"
+FIX: Install Node.js from https://nodejs.org
+
+ISSUE: "Cannot connect to MySQL"
+FIX: Make sure MySQL is running (check XAMPP or MySQL service)
+
+ISSUE: "Port 3000 already in use"
+FIX: Change port in server.js or stop other application using port 3000
+
+ISSUE: "Database connection error"
+FIX: Verify MySQL credentials in server.js match your setup
+
+ISSUE: "Module not found"
+FIX: Run "npm install" in the backend folder
+
+================================================================================
+DATABASE CONFIGURATION
+================================================================================
+
+If you need to change database credentials, edit:
+    backend/server.js (lines 24-28)
+
+    const db = mysql.createConnection({
+        host: 'localhost',
+        user: 'your_username',
+        'password': 'your_password',
+        database: 'job'
+    });
+
+================================================================================
+STOPPING THE SERVER
+================================================================================
+
+- Press Ctrl+C in the terminal to stop the server
+
+================================================================================
+For more details, see README.md
+================================================================================
